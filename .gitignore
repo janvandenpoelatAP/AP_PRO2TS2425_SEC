@@ -1,1 +1,6 @@
 Opgaven/
+node_modules/
+package-lock.json
+*.pem
+*.csr
+
