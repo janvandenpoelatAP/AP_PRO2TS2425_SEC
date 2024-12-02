@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>instructies_labo_10.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- 
+DISCLAIMER:
+
+!!!!
+
+GEBRUIK NIET DIT BESTAND OM HET LABO TE MAKEN MAAR GEBRUIK DE LINK OP DIGITAP!
+
+!!!!
+-->
+<style>
+.holder_default {
+    width:500px; 
+    height:150px; 
+    border: 3px dashed #ccc;
+}
+
+.hover { 
+    width:400px; 
+    height:150px; 
+    border: 3px dashed #0c0 !important; 
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
+}
+</style>
+<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<form action="/task" method="post">
+<h1 id="labo-10-input-validation-2">Labo 10: Input Validation 2</h1>
+<p>Zoals altijd kunnen de oefeningen binnengehaald worden door een git pull te doen.</p>
+<pre class="hljs"><code><div>git pull
+</div></code></pre>
+<p>of de git repository te clonen als je deze nog niet hebt.</p>
+<pre class="hljs"><code><div>git clone https://github.com/janvandenpoelatAP/AP_PRO2TS2425_SEC.git
+</div></code></pre>
+<h3 id="wat-ga-je-leren-in-dit-labo">Wat ga je leren in dit labo?</h3>
+<ul>
+<li>Uitvoeren van SQL Injection aanvallen</li>
+<li>Oplossen van SQL Injection risico's</li>
+</ul>
+<h3 id="database-design">Database design</h3>
+<p>De applicatie bestaat uit twee tabellen:</p>
+<pre class="hljs"><code><div>CREATE TABLE Ticket (name STRING, country STRING, tickets INTEGER)
+CREATE TABLE User (username STRING, password STRING, admin BOOLEAN, fullname STRING)
+</div></code></pre>
+<h3 id="stappenplan">Stappenplan</h3>
+<ol>
+<li>
+<p>Ga naar de <code>labo_validation</code> directory en doe vervolgens</p>
+<pre class="hljs"><code><div>npm install
+</div></code></pre>
+</li>
+<li>
+<p>Hier vinden we weer onze onveilige web applicatie! Je kan deze opstarten net als vorig labo met</p>
+<pre class="hljs"><code><div>node index.js
+</div></code></pre>
+</li>
+<li>
+<p>Probeer een SQL injection aanval op het login scherm. Je kan het Username veld misbruiken om jezelf in te loggen als admin.</p>
+<p><strong>Tip:</strong> De SQL Query wordt afgeprint in je console venster. Zo kan je gemakkelijker zien welke query er uitgevoerd wordt bij het inloggen.</p>
+<p>Welke string heb je moeten ingeven om de SQL aanval uit te voeren:</p>
+ <textarea style="width: 100%;" rows="2">
+ </textarea>
+<p>Neem een screenshot van de admin pagina en sleep deze hieronder in</p>
+ <div id="admin" style="" class="holder_default">
+       <img src="" id="admin_image_droped"  style="max-width:80%; border: 3px dashed #7A97FC;" class=" hidden"/>
+ </div>
+ <script>
+     $(document).ready(function() {
+         addDrop('admin')
+     });
+ </script>
+</li>
+<li>
+<p>Bij show ticket sales kun je een overzicht krijgen van alle gekochte tickets. Je kan daar ook zoeken op alle tickets. De query die hier gebruikt wordt is ook gevoelig aan een SQL injection aanval.</p>
+</li>
+<li>
+<p>Het is mogelijk om alle tabellen van de database uit te printen aan de hand van een UNION gebaseerde aanval.</p>
+<p>In SQLite kan je alle tabellen opvragen via</p>
+<pre class="hljs"><code><div>SELECT name FROM sqlite_master WHERE type ='table';
+</div></code></pre>
+<p>Je kan in het search input veld via de ticket sales pagina een SQL injection aanval doen door:</p>
+<pre class="hljs"><code><div>%' UNION SELECT name FROM sqlite_master WHERE type ='table'; --
+</div></code></pre>
+<p>in te geven in het invoerveld. Dit werkt jammer genoeg niet, waarom niet?</p>
+ <textarea style="width: 100%;" rows="5">
+ </textarea>
+<p><strong>Tip:</strong> vergelijk het aantal kolommen van de query hier boven en de query die gedaan wordt om de Tickets op te vragen.</p>
+</li>
+<li>
+<p>Pas nu de query string van hierboven aan zodat er evenveel kolommen geselecteerd worden als de query die wordt gedaan voor show-tickets.</p>
+<p><strong>Tip:</strong> Je kan lege kolommen toevoegen a.d.h.v '' of gewoon de naam meerdere keren selecteren.</p>
+<p>Welke string heb je moeten ingeven om de SQL aanval uit te voeren:</p>
+ <textarea style="width: 100%;" rows="3">
+ </textarea>
+<p>Neem een screenshot van de uitgeprinte tabellen en sleep deze hieronder in:</p>
+ <div id="tables" style="" class="holder_default">
+       <img src="" id="tables_image_droped"  style="max-width:80%; border: 3px dashed #7A97FC;" class=" hidden"/>
+ </div>
+ <script>
+     $(document).ready(function() {
+         addDrop('tables')
+     });
+ </script>
+</li>
+<li>
+<p>Je kan aan de hand van een UNION sql injection aanval ook de User tabel uitlezen.</p>
+<p>Welke string heb je moeten ingeven om de SQL aanval uit te voeren:</p>
+ <textarea style="width: 100%;" rows="3">
+ </textarea>
+<p>Neem een screenshot van de uitgeprinte User tabel en sleep deze hieronder in:</p>
+ <div id="user" style="" class="holder_default">
+       <img src="" id="user_image_droped"  style="max-width:80%; border: 3px dashed #7A97FC;" class=" hidden"/>
+ </div>
+ <script>
+     $(document).ready(function() {
+         addDrop('user')
+     });
+ </script>
+</li>
+<li>
+<p><strong>Extra:</strong> Ook bij het kopen van tickets kan je een SQL Injection aanval doen. Probeer een User toe te voegen door het <code>Naam</code> veld te misbruiken.</p>
+<p>Zorg er eerst voor dat je de wijzigingen voor server side validation van vorige les in commentaar zet!</p>
+<p>Wat moest je in het Naam veld ingeven om een User toe te voegen.</p>
+ <textarea style="width: 100%;" rows="2">
+ </textarea>
+</li>
+<li>
+<p><strong>Extra:</strong> Er zijn nog interessante Tabellen die je kan uitlezen!</p>
+</li>
+<li>
+<p>Gebruik prepared statements om de applicatie veilig te maken voor SQL injection attacks.</p>
+<p><strong>Opgepast:</strong> Zorg dat alles blijft werken. Bij de LIKE query zal je '%' + name + '%' moeten meegeven als parameter voor het vraagteken.</p>
+</li>
+<li>
+<p>Print deze pagina af als PDF en slaag deze op als <code>naam_voornaam_labo_sql_injection.pdf</code> en stuur de volgende files op via digitap:</p>
+<ul>
+<li>naam_voornaam_labo_sql_injection.pdf</li>
+<li>tickets.db</li>
+<li>index.js</li>
+</ul>
+</li>
+</ol>
+<script>
+function addDrop(id) {
+    var holder = document.getElementById(id);
+    holder.ondragover = function () { this.className = 'hover'; return false; };
+    holder.ondrop = function (e) {
+      this.className = 'hidden';
+      e.preventDefault();
+      var file = e.dataTransfer.files[0];
+      var reader = new FileReader();
+      reader.onload = function (event) {
+          document.getElementById(id + '_image_droped').className='visible'
+          $('#' + id + '_image_droped').attr('src', event.target.result);
+      }
+      reader.readAsDataURL(file);
+    };
+}
+</script>
+
+</body>
+</html>
