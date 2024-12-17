@@ -56,7 +56,7 @@ app.post('/', (req, res) => {
                 username: username,
                 password: password,
             }
-            res.redirect('/main', {csrfToken: req.csrfToken()});
+            res.redirect('/main');
             return;
         }
     }
